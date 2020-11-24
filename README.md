@@ -17,5 +17,3 @@ TODO: Write a project description
 ## Links
 
 [Henrik Lissner's Github Repo for Doom Emacs](https://github.com/hlissner/doom-emacs)
-
-

@@ -32,7 +32,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Dropbox/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -81,6 +81,11 @@
 (defconst *sys/mac*
   (eq system-type 'darwin)
   "Are we running on a Mac system?")
+
+;; Date / Time
+(display-time-mode 1)
+(setq display-time-day-and-date t)
+
 
 ;; Standard placement
 (add-to-list 'default-frame-alist '(top . 12))
@@ -155,7 +160,7 @@
 
 (use-package! elfeed-org
   :init
-  (setq rmh-elfeed-org-files '("~/org/elfeed.org"))
+  (setq rmh-elfeed-org-files '("~/Dropbox/org/elfeed.org"))
   :config
   (elfeed-org))
 
