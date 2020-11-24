@@ -99,7 +99,7 @@
 (global-set-key (kbd "C-x b") 'counsel-switch-buffer)
 (global-set-key (kbd "<next>") 'forward-paragraph)
 (global-set-key (kbd "<prior>") 'backward-paragraph)
-(global-set-key (kbd "C-c C-e") 'elfeed)
+; (global-set-key (kbd "C-c C-e") 'elfeed)
 
 ;; Elfeed Configuratio
 ;; An Emacs web feeds client
