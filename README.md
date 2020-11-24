@@ -12,14 +12,10 @@ TODO: Write a project description
 
 ## History
 
-TODO: Write history
+<2020-11-24 Tue>: New repo established
 
-## Credits
+## Links
 
-TODO: Write credits
-
-## License
-
-TODO: Write license
+[Henrik Lissner's Github Repo for Doom Emacs](https://github.com/hlissner/doom-emacs)
 
 
