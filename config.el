@@ -106,10 +106,16 @@
 (global-set-key (kbd "<prior>") 'backward-paragraph)
 ; (global-set-key (kbd "C-c C-e") 'elfeed)
 
+
+;; YASnippets
+;; Develop in ~/doom.d/snippets, but also try out snippets in ~/Dropbox/emacs/snippets
+;;
+(setq yas-snippet-dirs '("~/doom.d/snippets"
+                         "~/Dropbox/emacs/snippets"))
+
 ;; Elfeed Configuratio
 ;; An Emacs web feeds client
 ;;
-
 ;; functions to support .elfeed
 
 (defun pkn/elfeed-load-db-and-open ()
