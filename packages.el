@@ -53,3 +53,4 @@
 (package! mastodon)
 (package! hercules)
 (package! bufler)
+(package! elcord)
