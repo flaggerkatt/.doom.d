@@ -22,7 +22,7 @@
 ;; (setq doom-font (font-spec :family "Menlo" :size 12))
 
 (setq doom-font (font-spec :family "JetBrains Mono" :size 12)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 12)
+      doom-variable-pitch-font (font-spec :family "Overpass" :size 12)
       doom-big-font (font-spec :family "JetBrains Mono" :size 14))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -144,7 +144,6 @@
 
 
 (use-package! elfeed
-  :ensure t
   :bind (:map elfeed-search-mode-map
           ("q" . pkn/elfeed-save-db-and-bury)
 		      ("Q" . pkn/elfeed-save-db-and-bury)
@@ -240,7 +239,6 @@
 
 ;; Major mode hydra and pretty-hydra
 (use-package! major-mode-hydra
-  :ensure t
   :preface
   (defun with-faicon (icon str &optional height v-adjust)
     "Displays an icon from Font Awesome icon."
@@ -456,6 +454,33 @@
 ;; EXPERIMENTAL
 ;;
 
+;; elfeed-dashbboard
+(use-package elfeed-dashboard
+  :load-path "~/Code/elfeed-dashboard/"
+  :config (setq elfeed-dashboard-file "~/Code/elfeed-dashboard/elfeed-dashboard.org"))
+
+;; Spotify
+;;
+(use-package! spotify)
+(setq spotify-oauth2-client-secret "c570526d0bf1411c82a6d796012fa97f")
+(setq spotify-oauth2-client-id "d48809392ed745bc8969c38723603763")
+(setq spotify-transport 'connect)
+
+;; Blogging shit
+;;
+(setq org-publish-project-alist
+      '(("flaggerkatt.github.io" ;; my blog project (just a name)
+         ;; Path to org files.
+         :base-directory "~/Code/flaggerkatt.github.io/docs/_org"
+         :base-extension "org"
+         ;; Path to Jekyll Posts
+         :publishing-directory "~/Code/flaggerkatt.github.io/docs/_posts"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4
+         :html-extension "html"
+         :body-only t
+         )))
 
 
 ;;

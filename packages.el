@@ -54,3 +54,4 @@
 (package! hercules)
 (package! bufler)
 (package! elcord)
+(package! spotify)
