@@ -38,6 +38,7 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
+(setq fancy-splash-image (concat doom-private-dir "splash/doom-emacs-color.png"))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -482,6 +483,20 @@
          :body-only t
          )))
 
+;;
+;;
+
+;; Trunkate posframe lines
+;;
+(setq posframe-arghandler
+      (lambda (buffer-or-name key value)
+        (or (and (eq key :lines-truncate)
+                 (equal ivy-posframe-buffer
+                        (if (stringp buffer-or-name)
+                            buffer-or-name
+                          (buffer-name buffer-or-name)))
+                 t)
+            value)))
 
 ;;
 ;;
