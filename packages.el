@@ -55,3 +55,4 @@
 (package! bufler)
 (package! elcord)
 (package! spotify)
+(package! pocket-reader)

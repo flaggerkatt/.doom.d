@@ -19,12 +19,10 @@
        ;;japanese
 
        :completion
-       (company           ; the ultimate code completion backend
-        +childframe)
-        ;;helm              ; the *other* search engine for love and life
+       company           ; the ultimate code completion backend
+       ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        (ivy               ; a search engine for love and life
-        +childframe
         +fuzzy
         +prescient
         +icons)
@@ -84,8 +82,7 @@
        vterm             ; the best terminal emulation in Emacs
 
        :checkers
-       (syntax              ; tasing you for every semicolon you forget
-        +childframe)
+       syntax              ; tasing you for every semicolon you forget
        ;;spell         ; tasing you for misspelling mispelling
        ;;grammar           ; tasing grammar mistake every you make
 
@@ -100,7 +97,7 @@
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
        ;;lsp
-       macos             ; MacOS-specific commands
+       ;;macos             ; MacOS-specific commands
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds

@@ -460,6 +460,9 @@
   :load-path "~/Code/elfeed-dashboard/"
   :config (setq elfeed-dashboard-file "~/Code/elfeed-dashboard/elfeed-dashboard.org"))
 
+(use-package! org-web-tools
+  :config (setq org-web-tools-pandoc-sleep-time 1.0))
+
 ;; Spotify
 ;;
 (use-package! spotify)
