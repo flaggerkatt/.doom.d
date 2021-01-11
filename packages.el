@@ -56,3 +56,4 @@
 (package! elcord)
 (package! spotify)
 (package! pocket-reader)
+(package! deadgrep)
