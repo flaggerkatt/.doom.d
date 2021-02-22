@@ -46,6 +46,7 @@
 ;; our package manager can't deal with; see raxod502/straight.el#279)
 ;(package! builtin-package :recipe (:branch "develop"))
 
+(package! org-page)
 (package! elfeed-goodies)
 (package! nyan-mode)
 (package! org-sidebar)
@@ -54,6 +55,5 @@
 (package! hercules)
 (package! bufler)
 (package! elcord)
-(package! spotify)
 (package! pocket-reader)
 (package! deadgrep)

@@ -64,30 +64,6 @@
 (global-set-key (kbd "M-/") nil)
 
 
-;; Some basic shit - constants. Let's say we wanna run stuff differently in WSL and on the Mac...?
-;;
-
-(defconst *sys/gui*
-  (display-graphic-p)
-  "Are we running on a GUI Emacs?")
-
-(defconst *sys/win32*
-  (eq system-type 'windows-nt)
-  "Are we running on a WinTel system?")
-
-(defconst *sys/linux*
-  (eq system-type 'gnu/linux)
-  "Are we running on a GNU/Linux system?")
-
-(defconst *sys/mac*
-  (eq system-type 'darwin)
-  "Are we running on a Mac system?")
-
-;; Date / Time
-(display-time-mode 1)
-(setq display-time-day-and-date t)
-
-
 ;; Standard placement
 (add-to-list 'default-frame-alist '(top . 12))
 (add-to-list 'default-frame-alist '(left . 1))
@@ -106,7 +82,7 @@
 (global-set-key (kbd "<next>") 'forward-paragraph)
 (global-set-key (kbd "<prior>") 'backward-paragraph)
 ; (global-set-key (kbd "C-c C-e") 'elfeed)
-
+(global-set-key (kbd "s-b") 'switch-to-buffer)
 
 ;; YASnippets
 ;; Develop in ~/doom.d/snippets, but also try out snippets in ~/Dropbox/emacs/snippets
@@ -114,7 +90,7 @@
 (setq yas-snippet-dirs '("~/doom.d/snippets"
                          "~/Dropbox/emacs/snippets"))
 
-;; Elfeed Configuratio
+;; Elfeed Configuration
 ;; An Emacs web feeds client
 ;;
 ;; functions to support .elfeed
@@ -217,7 +193,7 @@
 (setq org-agenda-files
       (quote (
               "~/Dropbox/deft"
-              "~/org")))
+              "~/Dropbox/org")))
 
 ;; set maximum indentation for description lists
 (setq org-list-description-max-indent 5)
@@ -463,13 +439,6 @@
 (use-package! org-web-tools
   :config (setq org-web-tools-pandoc-sleep-time 1.0))
 
-;; Spotify
-;;
-(use-package! spotify)
-(setq spotify-oauth2-client-secret "c570526d0bf1411c82a6d796012fa97f")
-(setq spotify-oauth2-client-id "d48809392ed745bc8969c38723603763")
-(setq spotify-transport 'connect)
-
 ;; Blogging shit
 ;;
 (setq org-publish-project-alist
@@ -487,23 +456,15 @@
          )))
 
 ;;
+;; MU4e
 ;;
 
-;; Trunkate posframe lines
-;;
-(setq posframe-arghandler
-      (lambda (buffer-or-name key value)
-        (or (and (eq key :lines-truncate)
-                 (equal ivy-posframe-buffer
-                        (if (stringp buffer-or-name)
-                            buffer-or-name
-                          (buffer-name buffer-or-name)))
-                 t)
-            value)))
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e")
+(require 'mu4e)
 
-;;
-;;
-
+(use-package mu4e-config
+  :after mu4e
+  :load-path "~/.config/mu4e")
 
 
 ;; Set default directory
