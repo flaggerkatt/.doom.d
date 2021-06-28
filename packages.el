@@ -59,3 +59,5 @@
 (package! org-mime)
 (package! mu4e-views)
 (package! mu4e-alert)
+(package! mu4e-marker-icons)
+(package! spacemacs-theme)
