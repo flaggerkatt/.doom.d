@@ -61,3 +61,9 @@
 (package! mu4e-alert)
 (package! mu4e-marker-icons)
 (package! spacemacs-theme)
+
+;; (package! nano-theme
+;;   :recipe (:host github :repo "rougier/nano-theme"))
+
+(package! nano-sidebar
+  :recipe (:host github :repo "rougier/nano-sidebar"))
