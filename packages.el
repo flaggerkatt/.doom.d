@@ -57,13 +57,14 @@
 (package! deadgrep)
 (package! minions)
 (package! org-mime)
-(package! mu4e-views)
-(package! mu4e-alert)
-(package! mu4e-marker-icons)
 (package! spacemacs-theme)
+(package! ts)
+(package! mpv)
+(package! aio)
+(package! noflet)
 
-;; (package! nano-theme
-;;   :recipe (:host github :repo "rougier/nano-theme"))
+(package! elfeed-tube
+  :recipe (:host github :repo "karthink/elfeed-tube"))
 
-(package! nano-sidebar
-  :recipe (:host github :repo "rougier/nano-sidebar"))
+(package! elfeed-tube-mpv
+  :recipe (:host github :repo "karthink/elfeed-tube"))

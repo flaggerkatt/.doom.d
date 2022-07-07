@@ -20,7 +20,8 @@
 
        :completion
        (company
-        +childframe)     ; the ultimate code completion backend
+        +childframe
+        +tng)     ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        (ivy                ; a search engine for love and life
@@ -157,7 +158,7 @@
         +pandoc
         +pomodoro
         +present
-        +roam)
+        +roam2)
        ;;perl              ; write code no one else can comprehend
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
@@ -174,14 +175,14 @@
        sh                ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity          ; do you need a blockchain? No.
-       ;;swift             ; who asked for emoji variables?
+       swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       ;;web               ; the tubes
+       web               ; the tubes
        ;;yaml              ; JSON, but readable
 
        :email
-       ;;(mu4e +gmail)
-       ;;notmuch
+       (mu4e +gmail)
+       ;; notmuch
        ;;(wanderlust +gmail)
 
        :app
