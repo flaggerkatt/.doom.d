@@ -72,3 +72,8 @@
 
 (package! mu4e-alert :disable t)
 
+(package! nano-agenda)
+
+(package! nano-theme)
+
+(package! nano-modeline)
