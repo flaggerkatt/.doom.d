@@ -58,6 +58,7 @@
 (package! minions)
 (package! org-mime)
 (package! spacemacs-theme)
+(package! nord-theme)
 (package! ts)
 (package! mpv)
 (package! aio)
@@ -68,3 +69,6 @@
 
 (package! elfeed-tube-mpv
   :recipe (:host github :repo "karthink/elfeed-tube"))
+
+(package! mu4e-alert :disable t)
+
