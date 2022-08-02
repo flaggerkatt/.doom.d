@@ -18,7 +18,6 @@
  '(menu-bar-mode nil)
  '(notmuch-show-logo t)
  '(package-selected-packages '(major-mode-hydra elfeed))
- '(show-paren-mode t)
  '(size-indication-mode t)
  '(smtpmail-smtp-server "smtp.gmail.com")
  '(smtpmail-smtp-service 25)
