@@ -48,7 +48,7 @@
 
 (package! org-page)
 (package! elfeed-goodies)
-(package! nyan-mode)
+;; (package! nyan-mode)
 (package! org-sidebar)
 (package! major-mode-hydra)
 (package! bufler)
@@ -77,3 +77,9 @@
 (package! nano-theme)
 
 (package! nano-modeline)
+
+(package! calibredb)
+
+(package! nov)
+
+(package! osm)
