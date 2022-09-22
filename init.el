@@ -19,17 +19,17 @@
        ;;japanese
 
        :completion
-       (company
-        +childframe
-        +tng)     ; the ultimate code completion backend
+       ;; (company
+       ;;  +childframe
+       ;;  +tng)     ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       (ivy                ; a search engine for love and life
-        +fuzzy
-        +prescient
-        +icons
-        +childframe)
-       ;; (vertico +icons)
+       ;; (ivy                ; a search engine for love and life
+       ;;  +fuzzy
+       ;;  +prescient
+       ;;  +icons
+       ;;  +childframe)
+       (vertico +icons)
 
        :ui
        deft              ; notational velocity for Emacs
@@ -195,8 +195,13 @@
        everywhere
        irc               ; how neckbeards socialize
        (rss +org)        ; emacs as an RSS reader
-       ; twitter           ; twitter client https://twitter.com/vnought
+       twitter           ; twitter client https://twitter.com/vnought
 
        :config
        ;;literate
        (default +bindings +smartparens))
+
+;;; add to $DOOMDIR/init.el
+(defadvice! fixed-doom-module-list (fn &rest args)
+  :around #'doom-module-list
+  (nreverse (apply fn args)))
