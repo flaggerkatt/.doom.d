@@ -1,0 +1,4 @@
+* Unreleased
+** [2022-12-15 Thu 15:24] Cha-cha-changes
+
+[[file:~/.doom.d/config.el]]
