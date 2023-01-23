@@ -47,8 +47,6 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 
 (package! org-page)
-(package! elfeed-goodies)
-;; (package! nyan-mode)
 (package! org-sidebar)
 (package! major-mode-hydra)
 (package! bufler)
@@ -57,29 +55,25 @@
 (package! deadgrep)
 (package! minions)
 (package! org-mime)
-(package! spacemacs-theme)
-(package! nord-theme)
 (package! ts)
-(package! mpv)
 (package! aio)
-(package! noflet)
-
-(package! elfeed-tube
-  :recipe (:host github :repo "karthink/elfeed-tube"))
-
-(package! elfeed-tube-mpv
-  :recipe (:host github :repo "karthink/elfeed-tube"))
-
-(package! mu4e-alert :disable t)
 
 (package! nano-agenda)
-
 (package! nano-theme)
-
 (package! nano-modeline)
 
-(package! calibredb)
+; Corfu, cape, dabbrev
+(package! corfu)
+(package! cape)
+(package! dabbrev)
 
-(package! nov)
+(package! grip-mode)
 
-(package! osm)
+(package! mastodon)
+
+(package! org-present)
+
+(package! autothemer)
+
+(package! emacs-spotify
+  :recipe (:host github :repo "SnootierMoon/emacs-spotify"))

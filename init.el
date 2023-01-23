@@ -29,10 +29,10 @@
        ;;  +prescient
        ;;  +icons
        ;;  +childframe)
-       (vertico +icons)
+       (vertico +icons +childframe)
 
        :ui
-       deft              ; notational velocity for Emacs
+       ;; deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
@@ -41,19 +41,20 @@
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        hydra
        ;;indent-guides     ; highlighted indent columns
-       (ligatures +extra)
+       (ligatures +extra +fira +iosevka +pragmata-pro +hasklig)
        ;;minimap           ; show a map of the code on the side
        modeline          ; snazzy, Atom-inspired modeline, plus API
-       nav-flash         ; blink cursor line after big motions
+       ;; nav-flash         ; blink cursor line after big motions
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
        (popup
         +all
         +defaults)       ; tame sudden yet inevitable temporary windows
        ;;tabs            ;  an tab bar for Emacs
-       ;;treemacs        ; a project drawer, like neotree but cooler
+       treemacs        ; a project drawer, like neotree but cooler
        ;;unicode         ; extended unicode support for various languages
-       vc-gutter         ; vcs diff in the fringe
+       (vc-gutter
+        +pretty)        ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        (window-select
         +numbers)                     ; visually switch windows
@@ -97,12 +98,14 @@
        ;;ansible
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        direnv
-       ;;docker
+       docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
        gist              ; interacting with github gists
-       lookup              ; navigate your code and its documentation
+       (lookup              ; navigate your code and its documentation
+       +dictionary                 ; dictionary/thesaurus is nice
+       +docsets)                   ; ...or in Dash docsets locally
        ;;lsp
        magit             ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
@@ -162,6 +165,7 @@
         +pandoc
         +pomodoro
         +present
+        +gnuplot
         +roam2)
        ;;perl              ; write code no one else can comprehend
        ;;php               ; perl's insecure younger brother
@@ -191,17 +195,12 @@
        ;;(wanderlust +gmail)
 
        :app
-       ;;calendar
+       calendar
        everywhere
        irc               ; how neckbeards socialize
        (rss +org)        ; emacs as an RSS reader
-       twitter           ; twitter client https://twitter.com/vnought
+       ;; twitter           ; twitter client https://twitter.com/vnought
 
        :config
        ;;literate
        (default +bindings +smartparens))
-
-;;; add to $DOOMDIR/init.el
-(defadvice! fixed-doom-module-list (fn &rest args)
-  :around #'doom-module-list
-  (nreverse (apply fn args)))
