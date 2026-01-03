@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 (setq user-full-name "Per-Karsten Nordhaug"
-       user-mail-address "flaggerkatt@gmail.com")
+      user-mail-address "flaggerkatt@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -23,15 +23,15 @@
 ;;
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
- (setq doom-font (font-spec :family "Roboto Mono" :size 12)
-       doom-variable-pitch-font (font-spec :family "Overpass" :size 12)
-       doom-big-font (font-spec :family "Roboto Mono" :size 15))
+(setq doom-font (font-spec :family "Roboto Mono" :size 12)
+      doom-variable-pitch-font (font-spec :family "Overpass" :size 12)
+      doom-big-font (font-spec :family "Roboto Mono" :size 15))
 ;;
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 ;; (setq doom-theme 'nano-dark)
-(setq doom-theme 'catppuccin)
+(setq doom-theme 'nano-dark)
 
 (use-package! catppuccin-theme
   )
@@ -70,6 +70,14 @@
 ;; Global mapped shortcuts
 (map! :leader :desc "Elfeed" "o e" #'elfeed)
 (map! :leader :desc "Switch buffer" "b b" #'consult-buffer)
+
+;; Zetteldeft mapping
+(map!
+ :leader
+ :desc "Launch Zetteldeft" :gn "n SPC" #'zetteldeft-deft-new-search
+ :desc "New File" :gn "z n" #'zetteldeft-new-file
+ :desc "New File and Link" :gn "z N" #'zetteldeft-deft-new-search-and-link
+ )
 
 ;; Mappings for consult/embark
 (global-set-key (kbd "C-s") 'consult-line)
@@ -191,12 +199,61 @@
         minions-mode-line-delimiters '("" . ""))
   (minions-mode 1))
 
+
+;; GPG settings
+;;
+(setq epa-pinentry-mode 'loopback)
+
+;; Mu4e settings
+;; 
+
+(set-email-account! "Gmail"
+                    '((mu4e-sent-folder       . "/Gmail/Sent")
+                      (mu4e-drafts-folder     . "/Gmail/Drafts")
+                      (mu4e-trash-folder      . "/Gmail/Trash")
+                      (mu4e-refile-folder     . "/Gmail/Archive")
+                      (smtpmail-smtp-user     . "flaggerkatt@gmail.com")
+                      (user-mail-address      . "flaggerkatt@gmail.com")    ;; only needed for mu < 1.4
+                      (mu4e-compose-signature . "---\nPer-Karstem Nordhaug"))
+                    t)
+
+(setq +mu4e-gmail-accounts '(("flaggerkatt@gmail.com" . "/Gmail")
+                             ))
+
+;; don't need to run cleanup after indexing for gmail
+(setq mu4e-index-cleanup nil
+      ;; because gmail uses labels as folders we can use lazy check since
+      ;; messages don't really "move"
+      mu4e-index-lazy-check t)
+
+(setq mu4e-maildir-shortcuts
+      '((:maildir "/Gmail/Inbox"    :key ?i)
+        (:maildir "/Gmail/Sent"         :key ?s)
+        (:maildir "/Gmail/Trash"     :key ?t)
+        (:maildir "/Gmail/Drafts"    :key ?d)
+        (:maildir "/Gmail/Archive"  :key ?a)))
+
+(setq mu4e-compose-in-new-frame t)
+(setq mu4e-change-filenames-when-moving t)
+(setq mu4e-attachment-dir  "~/Downloads")
+(setq message-kill-buffer-on-exit t)
+(setq mu4e-compose-dont-reply-to-self t)
+(setq mu4e-view-show-addresses 't)
+
+(after! mu4e
+  (setq sendmail-program (executable-find "msmtp")
+	send-mail-function #'smtpmail-send-it
+	message-sendmail-f-is-evil t
+	message-sendmail-extra-arguments '("--read-envelope-from")
+	message-send-mail-function #'message-send-mail-with-sendmail))
+
+
+
 ;; Consult, Vertico, Corfu, Cape, Orderless, Embark
 ;; Completion and such!
 ;; fun fun fun!
 
 (use-package! consult
-
   )
 
 ;; Vertico
@@ -285,6 +342,15 @@
          ("M-A" . marginalia-cycle))
   )
 
+;; Consult-mu - consult-like search for mu4e
+;; 
+(use-package! consult-mu)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Other stuff
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; Nyan-cat? Yes.
 (use-package! nyan-mode
   :config
@@ -353,6 +419,11 @@
   :config
   )
 
+;; Zetteldeft
+(use-package! zetteldeft
+  :config
+  (setq deft-directory "~/Dropbox/Documents/Zettel")
+  )
 
 ;; Set default directory
 (setq default-directory "~/")
